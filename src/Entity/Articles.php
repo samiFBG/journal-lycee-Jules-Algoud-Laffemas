@@ -5,12 +5,29 @@ namespace App\Entity;
 use App\Repository\ArticlesRepository;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ArticlesRepository::class)
+ * @UniqueEntity("title")
  */
 class Articles
 {
+    const month=[
+        1=> 'Janvier',
+        2=> 'Fevrier',
+        3=> 'Mars',
+        4=> 'Avril',
+        5=> 'Mai',
+        6=> 'Juin',
+        7=> 'Juiller',
+        8=> 'Aout',
+        9=> 'Septembre',
+        10=> 'Octobre',
+        11=> 'Novembre',
+        12=> 'Decembre',
+    ];
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -20,11 +37,13 @@ class Articles
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=5)
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=255)
+     *
      */
     private $categorie;
 
@@ -40,12 +59,14 @@ class Articles
 
     /**
      * @ORM\Column(type="datetime")
+     *
      */
     private $created_at;
 
 
 
     /**
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $titleslug;
@@ -56,24 +77,12 @@ class Articles
     private $categorieslug;
 
     /**
-     * @ORM\Column(type="string", length=4)
-     */
-    private $years;
-
-    /**
-     * @ORM\Column(type="string", length=2)
-     */
-    private $month;
-
-    /**
-     * @ORM\Column(type="string", length=2)
-     */
-    private $day;
-
-    /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $update_at;
+
+ 
+
 
     public function __construct(){
         $this->created_at = New \DateTime();
@@ -94,7 +103,7 @@ class Articles
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
+        $this->setTitleSlug($title);
         return $this;
     }
 
@@ -105,7 +114,8 @@ class Articles
 
     public function setCategorie(string $categorie): self
     {
-        $this->Categorie = $categorie;
+        $this->categorie = $categorie;
+        $this->setCategorieslug($categorie);
 
         return $this;
     }
@@ -129,9 +139,12 @@ class Articles
 
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
-        $this->created_at = $created_at;
 
-        return $this;
+
+            $this->created_at = $created_at;
+
+            return $this;
+
     }
 
     public function getAuthore(): ?string
@@ -153,9 +166,10 @@ class Articles
       return $this->titleslug;
     }
 
-    public function setTitleslug(string $titleslug): self
+    public function setTitleslug()
     {
-        $this->titleslug = $titleslug;
+
+        $this->titleslug = (new Slugify())->slugify($this->title);
 
         return $this;
     }
@@ -165,58 +179,46 @@ class Articles
         return $this->categorieslug;
     }
 
-    public function setCategorieslug(string $categorieslug): self
+    public function setCategorieslug()
     {
-        $this->categorieslug = $categorieslug;
+        $this->categorieslug = (new Slugify())->slugify($this->categorie);
 
         return $this;
     }
 
     public function getYears(): ?string
     {
-        return $this->years;
+        $years = date_format($this->created_at,'Y');
+        return   $years;
     }
 
-    public function setYears(string $years): self
-    {
-        $this->years = $years;
 
-        return $this;
-    }
 
     public function getMonth(): ?string
     {
-        return $this->month;
+        $month = date_format($this->created_at,'m');
+        return $month;
     }
-    public function setMonth(string $month): self
-    {
-        $this->months = $month;
 
-        return $this;
+    public function getMonthname():string
+    {
+        return self::month[$this->getMonth()] ;
     }
 
     public function getDay(): ?string
     {
-        return $this->day;
+       $day = date_format($this->created_at,'d');
+        return $day;
     }
-
-    public function setDay(string $day): self
+    public function getTimeh(): ?string
     {
-        $this->day = $day;
-
-        return $this;
+        $timeh = date_format($this->created_at,'H');
+        return $timeh;
     }
-
-    public function getUpdateAt(): ?\DateTimeInterface
+    public function getTimem(): ?string
     {
-        return $this->update_at;
-    }
-
-    public function setUpdateAt(\DateTimeInterface $update_at): self
-    {
-        $this->update_at = $update_at;
-
-        return $this;
+        $timem = date_format($this->created_at,'i');
+        return $timem;
     }
     public function getSlugtitle(){
         return  $slugify =(new Slugify())->slugify($this->title);
@@ -224,4 +226,64 @@ class Articles
     public function getSlugcategorie(){
         return  $slugify =(new Slugify())->slugify($this->categorie);
     }
+
+    public function getEdityears(): ?string
+    {
+        $years = date_format($this->update_at,'Y');
+        return   $years;
+    }
+    public function getEditmonth(): ?string
+    {
+
+        $month = date_format($this->update_at,'m');
+        return $month;
+    }
+
+    public function getEditMonthname():string
+    {
+        return self::month[$this->getEditmonth()] ;
+    }
+
+    public function getEditday(): ?string
+    {
+        $day = date_format($this->update_at,'d');
+        return $day;
+    }
+
+    public function getEdittimeh(): ?string
+    {
+        $timeh = date_format($this->update_at,'H');
+        return $timeh;
+    }
+    public function getEdittimem(): ?string
+    {
+        $timem = date_format($this->update_at,'i');
+        return $timem;
+    }
+
+    public function getEdittime(): ?string
+    {if (!isset($this->update_at)){
+        return null;
+    }else{
+        return 1;
+    }
+
+    }
+
+
+    public function getUpdateAt(): ?\DateTimeInterface
+    {
+        return $this->update_at;
+    }
+
+    public function setUpdateAt(?\DateTimeInterface $update_at): self
+    {
+        $this->update_at = $update_at;
+
+        return $this;
+    }
+
+
+
+
 }

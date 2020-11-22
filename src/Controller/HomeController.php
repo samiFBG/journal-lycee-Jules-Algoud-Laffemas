@@ -18,10 +18,10 @@ Class HomeController extends AbstractController
      */
     public function index( ArticlesRepository $repository)
     {
-        $properties = $repository->findLatest();
+        $article = $repository->findLatest();
         return $this->render('pages/home.html.twig',
         [
-        'articles' => $properties
+        'articles' => $article
         ]
         );
     }

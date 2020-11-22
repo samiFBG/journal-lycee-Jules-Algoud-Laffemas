@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Articles;
-use App\Repository\ArticlesRepository;
 
 
 class ArticlesController extends AbstractController
@@ -19,7 +18,7 @@ class ArticlesController extends AbstractController
         ]);
     }
     /**
-     * @Route("/{slugcategorie}/{years}/{month}/{day}/{slugtitle}", name="property.show" ,requirements={"slugcategorie":"[a-z0-9\-]*"})
+     * @Route("/{slugcategorie}/{years}/{month}/{day}/{slugtitle}", name="article.show" ,requirements={"slugcategorie":"[a-z0-9\-]*"})
      */
     public function show(  $slugcategorie , $years, $month, $day, $slugtitle )
     {
@@ -28,9 +27,9 @@ class ArticlesController extends AbstractController
             'titleslug' => $slugtitle,
             'categorieslug' => $slugcategorie,
         ]);
-        dump($articles);
         return $this->render("articles/show.html.twig" ,[
             'articles'=>$articles,
+            'edittime'=>$articles->getEdittime(),
         ]);
     }
 }

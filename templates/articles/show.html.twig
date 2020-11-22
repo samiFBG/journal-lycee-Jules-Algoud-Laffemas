@@ -13,6 +13,12 @@
                     </div>
                 </div>
                 <p class="card-text">
+                     le {{ articles.day}} {{  articles.monthname}} {{ articles.years  }} a {{ articles.timeh }}h{{ articles.timem }}
+                    {% if edittime is defined and edittime is not null %}
+                        , modifé le {{ articles.editday}} {{  articles.editMonthname}} {{ articles.edityears  }} a {{ articles.edittimeh }}h{{ articles.edittimem }}
+                    {% endif %}
+                </p>
+                <p class="card-text">
                     categorie : {{ articles.categorie }}
                 </p>
                 <p class="card-text">

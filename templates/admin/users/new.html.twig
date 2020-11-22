@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block title 'Gerer les biens' %}
+{% block body %}
+    <div class="container mt-4">
+        <h2> Cree un nouveau Personnel</h2>
+        {{ include ('admin/users/_form.html.twig',{form: form, button: 'Enregistrer'}) }}
+
+    </div>
+{% endblock %}

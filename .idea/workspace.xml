@@ -20,22 +20,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="170523ad-b053-44c8-9e8a-9329910421f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/ArticlesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/Categorie.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CategorieRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/articles/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/articles/show.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/admin/ArticlesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/admin/UserManagement.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/admin/UserRegisterController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/journaliste/ArticlesController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/ArticlesType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/articles/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/articles/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/articles/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/articles/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/users/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/users/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/users/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/users/mail/adduser.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/users/new.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/journaliste/articles/_form.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/journaliste/articles/edit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/journaliste/articles/index.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/journaliste/articles/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/journal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/journal.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201029122807.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201029123207.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201101102422.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201101103045.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201101122248.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20201101122448.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ArticlesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticlesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Articles.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Articles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ArticlesRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ArticlesRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/articles/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/articles/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/pages/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,6 +72,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="composer.json" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -162,6 +184,9 @@
       <path value="$PROJECT_DIR$/vendor/webimpress/safe-writer" />
       <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfonycasts/reset-password-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jYFC52QZcjv8YAlZhPbR9OZd0U" />
@@ -171,17 +196,24 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../agence" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\laragon\www\journal\src\Controller\admin" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\laragon\www\journal\templates\admin\users" />
       <recent name="E:\laragon\www\journal\templates" />
+      <recent name="E:\laragon\www\journal\templates\admin\articles" />
     </key>
   </component>
   <component name="RunManager">
@@ -211,6 +243,21 @@
       <workItem from="1604239642706" duration="79000" />
       <workItem from="1604239728690" duration="798000" />
       <workItem from="1604240544485" duration="1036000" />
+      <workItem from="1604326612494" duration="3253000" />
+      <workItem from="1604340971129" duration="1767000" />
+      <workItem from="1604414999926" duration="1075000" />
+      <workItem from="1605187007722" duration="10000" />
+      <workItem from="1605187922694" duration="8670000" />
+      <workItem from="1605196815494" duration="3009000" />
+      <workItem from="1605203906944" duration="8316000" />
+      <workItem from="1605291662818" duration="4285000" />
+      <workItem from="1605342731135" duration="282000" />
+      <workItem from="1605445870566" duration="5464000" />
+      <workItem from="1605467299796" duration="2998000" />
+      <workItem from="1605545657512" duration="11432000" />
+      <workItem from="1605714408140" duration="14920000" />
+      <workItem from="1605897654467" duration="4146000" />
+      <workItem from="1606058185847" duration="766000" />
     </task>
     <servers />
   </component>
@@ -230,22 +277,26 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="719" y="318" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604164626672">
+    <state x="719" y="318" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605205602702">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="719" y="318" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1604164626672" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1604178982991">
+    <state x="719" y="318" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1605205602702" />
+    <state x="794" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605728696522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604178982991" />
-    <state x="267" y="275" key="FileChooserDialogImpl" timestamp="1604241643574">
+    <state x="794" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605728696522" />
+    <state x="818" y="284" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1605904615115">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="267" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604241643574" />
-    <state x="773" y="227" key="NewPhpClassDialog" timestamp="1604164856179">
+    <state x="818" y="284" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605904615115" />
+    <state x="267" y="275" key="FileChooserDialogImpl" timestamp="1605716410522">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="773" y="227" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1604164856179" />
+    <state x="267" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605716410522" />
+    <state x="773" y="227" key="NewPhpClassDialog" timestamp="1605722688431">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="773" y="227" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605722688431" />
     <state x="346" y="249" key="SettingsEditor" timestamp="1604240833016">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
