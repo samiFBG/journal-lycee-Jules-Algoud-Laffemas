@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -32,14 +34,25 @@ class User implements UserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string" ,nullable=true)
      */
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 )
      */
     private $email;
+
+    /**
+     * @ORM\Column(type="string", length=255 ,nullable=true)
+     */
+    private $reset_token;
+
+
+    public function __construct()
+    {
+        $this->reset = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -130,4 +143,19 @@ class User implements UserInterface
 
         return $this;
     }
+
+
+    public function getResetToken(): ?string
+    {
+        return $this->reset_token;
+    }
+
+    public function setResetToken(string $reset_token): self
+    {
+        $this->reset_token = $reset_token;
+
+        return $this;
+    }
+
+
 }

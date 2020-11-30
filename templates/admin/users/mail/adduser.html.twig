@@ -1,2 +1,9 @@
-<p>name :{{ name }}</p>
-<p>password:{{ password }}</p>
+<h1>Hi {{ pseudo }}!</h1>
+
+<p>To reset your password, please visit the following link</p>
+
+<a href="{{ url('app_reset_password', {token: resetToken.token}) }}">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
+
+<p>This link will expire in 24  heurs.</p>
+
+<p>Cheers!</p>

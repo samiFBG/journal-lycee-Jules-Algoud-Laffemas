@@ -7,6 +7,7 @@ namespace App\Controller\journaliste;
 use App\Entity\Articles;
 use App\Form\ArticlesType;
 use App\Repository\ArticlesRepository;
+use Cocur\Slugify\Slugify;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,6 +39,9 @@ class ArticlesController extends AbstractController
         $form = $this->createForm(ArticlesType::class,$article);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
+            $categorie = $article->getCategorie()->getName();
+            $categorieslug = (new slugify())->slugify($categorie);
+            $article = $article->setCategorieslug($categorieslug);
             $this->em->persist($article);
             $this->em->flush();
             return  $this->redirectToRoute('journaliste.articles.index');
@@ -57,6 +61,9 @@ class ArticlesController extends AbstractController
         $form->handleRequest($request);
         $article->setupdateat( New \DateTime());
         if ($form->isSubmitted() && $form->isValid()){
+            $categorie = $article->getCategorie()->getName();
+            $categorieslug = (new slugify())->slugify($categorie);
+            $article = $article->setCategorieslug($categorieslug);
             $this->em->flush();
             $this->addFlash('success','Bien modifier avec succée');
             return  $this->redirectToRoute('journaliste.articles.index');

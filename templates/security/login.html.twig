@@ -3,6 +3,22 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
+<div class="container mt-4">
+    {% for message in app.flashes('danger') %}
+        <div class="alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('warning') %}
+        <div class="alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('message') %}
+        <div class="alert-danger">
+            {{ message }}
+        </div>
+    {% endfor %}
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -23,7 +39,7 @@
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
-    <a href="{{ path('app_forgot_password_request') }}">mdp oublié</a>
+    <a href="{{ path('app_forgotten_password') }}">mdp oublié</a>
 
     {#
         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.

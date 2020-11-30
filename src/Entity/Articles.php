@@ -37,15 +37,10 @@ class Articles
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Length(min=3, max=5)
+     * @Assert\Length(min=3, max=50)
      */
     private $title;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     *
-     */
-    private $categorie;
 
     /**
      * @ORM\Column(type="string", length=1000000)
@@ -81,7 +76,12 @@ class Articles
      */
     private $update_at;
 
- 
+    /**
+     * @ORM\ManyToOne(targetEntity=Categorie::class, inversedBy="articles")
+     */
+    private $categorie;
+
+
 
 
     public function __construct(){
@@ -107,20 +107,6 @@ class Articles
         return $this;
     }
 
-    public function getCategorie(): ?string
-    {
-        return $this->categorie;
-    }
-
-    public function setCategorie(string $categorie): self
-    {
-        $this->categorie = $categorie;
-        $this->setCategorieslug($categorie);
-
-        return $this;
-    }
-
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -141,9 +127,9 @@ class Articles
     {
 
 
-            $this->created_at = $created_at;
+        $this->created_at = $created_at;
 
-            return $this;
+        return $this;
 
     }
 
@@ -163,7 +149,7 @@ class Articles
 
     public function getTitleslug(): ?string
     {
-      return $this->titleslug;
+        return $this->titleslug;
     }
 
     public function setTitleslug()
@@ -179,12 +165,14 @@ class Articles
         return $this->categorieslug;
     }
 
-    public function setCategorieslug()
+    public function setCategorieslug(string $categorieslug)
     {
-        $this->categorieslug = (new Slugify())->slugify($this->categorie);
+        $this->categorieslug = $categorieslug;
 
         return $this;
     }
+
+
 
     public function getYears(): ?string
     {
@@ -207,7 +195,7 @@ class Articles
 
     public function getDay(): ?string
     {
-       $day = date_format($this->created_at,'d');
+        $day = date_format($this->created_at,'d');
         return $day;
     }
     public function getTimeh(): ?string
@@ -282,6 +270,20 @@ class Articles
 
         return $this;
     }
+
+    public function getCategorie(): ?Categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?Categorie $categorie): self
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+
 
 
 

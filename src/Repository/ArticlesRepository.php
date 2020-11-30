@@ -22,8 +22,10 @@ class ArticlesRepository extends ServiceEntityRepository
     }
     public function findLatest():array
     {
+
         return $this->findVisibleQuery ()
-            ->setMaxResults(4)
+            ->orderBy('p.created_at', 'DESC')
+            ->setMaxResults(10)
             ->getQuery()
             ->getResult();
     }
@@ -33,8 +35,9 @@ class ArticlesRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p');
 
     }
+
     // /**
-    //  * @return Articles[] Returns an array of Articles objects
+    //  * @return articles[] Returns an array of articles objects
     //  */
     /*
     public function findByExampleField($value)
@@ -51,7 +54,7 @@ class ArticlesRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Articles
+    public function findOneBySomeField($value): ?articles
     {
         return $this->createQueryBuilder('a')
             ->andWhere('a.exampleField = :val')

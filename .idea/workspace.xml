@@ -186,7 +186,7 @@
       <path value="$PROJECT_DIR$/vendor/cocur/slugify" />
       <path value="$PROJECT_DIR$/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-fixtures-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfonycasts/reset-password-bundle" />
+      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/ckeditor-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1jYFC52QZcjv8YAlZhPbR9OZd0U" />
@@ -207,13 +207,13 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\laragon\www\journal\src\Controller\admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\laragon\www\journal\templates\admin\users" />
       <recent name="E:\laragon\www\journal\templates" />
       <recent name="E:\laragon\www\journal\templates\admin\articles" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\laragon\www\journal\src\Controller\admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -258,6 +258,7 @@
       <workItem from="1605714408140" duration="14920000" />
       <workItem from="1605897654467" duration="4146000" />
       <workItem from="1606058185847" duration="766000" />
+      <workItem from="1606565210047" duration="1956000" />
     </task>
     <servers />
   </component>

@@ -1,11 +1,13 @@
 <?php
 
 
-namespace App\Controller\admin;
+namespace App\Controller\admin\users;
+
 
 
 use App\Entity\User;
 use App\Form\UserregisterType;
+
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +19,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserManagement extends AbstractController
 {
 
-    public function __construct(UserRepository $repository , EntityManagerInterface  $em  ){
+    public function __construct(UserRepository $repository , EntityManagerInterface  $em )
+    {
         $this->repository =$repository;
         $this->em = $em;
     }
@@ -31,7 +34,7 @@ class UserManagement extends AbstractController
     }
 
     /**
-     * @Route ("/admin/users/{id}", name ="admin.users.edit" , methods="GET|POST")
+     * @Route ("/admin/users/edit/{id}", name ="admin.users.edit" , methods="GET|POST")
      * @param User $users
      */
     public function edit(User $users , Request $request){
@@ -48,10 +51,11 @@ class UserManagement extends AbstractController
     }
 
     /**
-     * @Route ("/admin/users/{id}", name ="admin.users.delete" , methods="DELETE")
+     * @Route ("/admin/users/delete/{id}", name ="admin.users.delete" , methods="DELETE")
      * @param User $users
      */
-    public function delete(User $users , Request $request){
+    public function delete(User $users , Request $request ){
+
         if ($this->isCsrfTokenValid('delete'.$users->getId(), $request->get('_token'))){
             $this->em->remove($users);
             $this->em->flush();
